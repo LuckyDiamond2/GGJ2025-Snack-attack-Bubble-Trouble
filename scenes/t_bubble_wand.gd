@@ -2,16 +2,17 @@ extends Sprite2D
 
 var cleanupTimer: BubbleCleanupTimer
 var bubbles: Node
+var lastBubbleFiredTime: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("bubble wand loaded")
-	
 	cleanupTimer = get_parent().get_node("BubbleCleanupTimer")
 	assert(cleanupTimer != null)
 	
 	bubbles = get_parent().get_node("Bubbles")
 	assert(bubbles != null)
+	
+	lastBubbleFiredTime = Time.get_ticks_msec()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -26,14 +27,16 @@ func _input(event):
 		set_position(event.position)
 	
 	elif event is InputEventMouseButton:
-		var bubble = Sprite2D.new()
-		bubble.offset.y = -120
-		bubble.position = event.position
-		bubble.texture = load("res://assets/bubble/T_Bubble2.png")
+		var now = Time.get_ticks_msec()
+		if now - 200 < lastBubbleFiredTime:
+			return
+
+		var bubble = Bubble.new()
 		bubbles.add_child(bubble)
+		bubble.set_position(event.position)
 		
 		cleanupTimer.add_cleanup_timer(bubble)
-	
+		lastBubbleFiredTime = now
 	
 	# Print the size of the viewport.
 	# print("Viewport Resolution is: ", get_viewport().get_visible_rect().size)
