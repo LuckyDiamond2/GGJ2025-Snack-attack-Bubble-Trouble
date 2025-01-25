@@ -22,7 +22,10 @@ func set_position(pos: Vector2):
 	
 func play_pop_sound():
 	var player = AudioStreamPlayer.new()
+	player.volume_db = linear_to_db($"/root/Settings".get_effect_volume())
 	get_parent().add_child(player)
+	var rand_pitch_scale = randf_range(0.5, 1.5)
+	player.pitch_scale = rand_pitch_scale
 	player.stream = popSounds.pick_random()
 	player.play()
 

@@ -15,3 +15,47 @@ theme_override_font_sizes/font_size = 80
 icon = ExtResource("2_5ii0f")
 
 [connection signal="pressed" from="Playbutton" to="." method="_on_button_pressed"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kpcpx"]
+font_size = 32
+
+[node name="BGMVolume" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="BGMVolume"]
+offset_left = 1278.0
+offset_top = 912.0
+offset_right = 1590.0
+offset_bottom = 957.0
+text = "Background Volume"
+label_settings = SubResource("LabelSettings_kpcpx")
+
+[node name="HSlider" type="HSlider" parent="BGMVolume"]
+offset_left = 1636.0
+offset_top = 899.0
+offset_right = 1879.0
+offset_bottom = 979.0
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="EffectVolume" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="EffectVolume"]
+offset_left = 1278.0
+offset_top = 990.0
+offset_right = 1590.0
+offset_bottom = 1035.0
+text = "Effects Volume"
+label_settings = SubResource("LabelSettings_kpcpx")
+
+[node name="HSlider" type="HSlider" parent="EffectVolume"]
+offset_left = 1636.0
+offset_top = 977.0
+offset_right = 1879.0
+offset_bottom = 1057.0
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[connection signal="value_changed" from="BGMVolume/HSlider" to="." method="_on_bmg_slider_value_changed"]
+[connection signal="value_changed" from="EffectVolume/HSlider" to="." method="_on_effect_slider_value_changed"]
