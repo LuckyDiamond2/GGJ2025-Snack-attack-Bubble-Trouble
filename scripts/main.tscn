@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://djh03gny11peh"]
+[gd_scene load_steps=5 format=3 uid="uid://djh03gny11peh"]
 
 [ext_resource type="Texture2D" uid="uid://crpjmfrbw6y2t" path="res://assets/background/T_Kitchen.png" id="1_1ed0d"]
 [ext_resource type="PackedScene" uid="uid://ogqduk7e3hfc" path="res://scenes/t_bubble_wand.tscn" id="2_403un"]
+[ext_resource type="PackedScene" uid="uid://hk1l0uw6vhs8" path="res://scenes/food/hamburger.tscn" id="3_3a2as"]
+[ext_resource type="PackedScene" uid="uid://c0g21naslexct" path="res://scenes/cats/cat.tscn" id="4_6oxlf"]
 
 [node name="Node" type="Node"]
 
@@ -15,4 +17,10 @@ texture = ExtResource("1_1ed0d")
 
 [node name="TBubbleWand" parent="." instance=ExtResource("2_403un")]
 auto_translate_mode = 2
-position = Vector2(974, 947)
+position = Vector2(387, 900)
+
+[node name="Hamburger" parent="." instance=ExtResource("3_3a2as")]
+position = Vector2(1152, 762)
+
+[node name="Cat" parent="." instance=ExtResource("4_6oxlf")]
+position = Vector2(1751, 481)
