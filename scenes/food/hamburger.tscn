@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://hk1l0uw6vhs8"]
+
+[ext_resource type="Texture2D" uid="uid://b0wst2fej25uj" path="res://assets/foods/T_food_Hamgerber.png" id="1_l2rt5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dx2q1"]
+radius = 44.0454
+
+[node name="Hamburger" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8.84375, 1.84375)
+scale = Vector2(0.266235, 0.266235)
+texture = ExtResource("1_l2rt5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dx2q1")

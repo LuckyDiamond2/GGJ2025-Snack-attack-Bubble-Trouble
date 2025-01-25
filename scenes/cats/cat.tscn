@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0g21naslexct"]
+
+[ext_resource type="Texture2D" uid="uid://ceot6vd3pdq4v" path="res://assets/cats/T_idleC_1.png" id="1_csq5f"]
+[ext_resource type="Script" path="res://scenes/cats/cat.gd" id="1_gvt1u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6g4tg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_csq5f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lai2c"]
+radius = 87.0517
+
+[node name="Cat" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_gvt1u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.250013, 2.74999)
+scale = Vector2(0.458008, 0.458008)
+sprite_frames = SubResource("SpriteFrames_6g4tg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_lai2c")
