@@ -1,6 +1,7 @@
 extends Sprite2D
 
 var cleanupTimer: BubbleCleanupTimer
+var bubbles: Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,6 +9,9 @@ func _ready() -> void:
 	
 	cleanupTimer = get_parent().get_node("BubbleCleanupTimer")
 	assert(cleanupTimer != null)
+	
+	bubbles = get_parent().get_node("Bubbles")
+	assert(bubbles != null)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -23,10 +27,10 @@ func _input(event):
 	
 	elif event is InputEventMouseButton:
 		var bubble = Sprite2D.new()
-		bubble.offset = Vector2(-512, -512)
+		bubble.offset.y = -120
 		bubble.position = event.position
 		bubble.texture = load("res://assets/bubble/T_Bubble2.png")
-		add_child(bubble)
+		bubbles.add_child(bubble)
 		
 		cleanupTimer.add_cleanup_timer(bubble)
 	

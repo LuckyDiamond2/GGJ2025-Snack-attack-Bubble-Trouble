@@ -1,9 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://djh03gny11peh"]
+[gd_scene load_steps=5 format=3 uid="uid://djh03gny11peh"]
 
 [ext_resource type="Texture2D" uid="uid://crpjmfrbw6y2t" path="res://assets/background/T_Kitchen.png" id="1_1ed0d"]
 [ext_resource type="Script" path="res://scripts/bubble_cleanup_timer.gd" id="1_fnyj8"]
 [ext_resource type="PackedScene" uid="uid://ogqduk7e3hfc" path="res://scenes/t_bubble_wand.tscn" id="2_403un"]
-[ext_resource type="AudioStream" uid="uid://bjltd6r1vgwej" path="res://assets/background/CatTypeBeat.mp3" id="2_bk3e2"]
+[ext_resource type="AudioStream" uid="uid://dnapbn6xve8cy" path="res://assets/background/CatTypeBeat.mp3" id="2_bk3e2"]
 
 [node name="Node" type="Node"]
 
