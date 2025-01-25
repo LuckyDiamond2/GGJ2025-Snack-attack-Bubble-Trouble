@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c0g21naslexct"]
 
-[ext_resource type="Texture2D" uid="uid://ceot6vd3pdq4v" path="res://assets/cats/T_idleC_1.png" id="1_csq5f"]
+[ext_resource type="Texture2D" uid="uid://c3c8ch7glcaew" path="res://assets/cats/T_idleC_1.png" id="1_csq5f"]
 [ext_resource type="Script" path="res://scenes/cats/cat.gd" id="1_gvt1u"]
 [ext_resource type="PackedScene" uid="uid://q15hybayqdt4" path="res://scenes/cats/food_detection_zone.tscn" id="3_6h4g1"]
 

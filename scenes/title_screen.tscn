@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvkrr16lq0fc0"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_vcpgc"]
-[ext_resource type="Texture2D" uid="uid://tksuc1ua48sl" path="res://assets/other/Temp_Playbutton.png" id="2_5ii0f"]
+[ext_resource type="Texture2D" uid="uid://3areb4fcd58e" path="res://assets/other/Temp_Playbutton.png" id="2_5ii0f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tf5f6"]
 font_size = 32

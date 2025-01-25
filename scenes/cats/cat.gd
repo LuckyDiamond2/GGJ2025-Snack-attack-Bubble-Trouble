@@ -1,8 +1,9 @@
 extends RigidBody2D
 
-@export var ACCELERATION = 300
-@export var MAX_SPEED = 500
+@export var ACCELERATION = 100
+@export var MAX_SPEED = 200
 @export var FRICTION = 200
+@export var BUBBLE_HIT_DISTANCE = 200
 
 var food:Node2D
 @onready var sprite = $AnimatedSprite2D 
@@ -21,6 +22,7 @@ var state = CHASE
 func seek_Food():
 	if foodDetectionZone2.can_see_food():
 		state = IDLE
+		get_parent().on_cat_reaches_food.emit()
 	elif foodDetectionZone.can_see_food():
 		state = CHASE
 		food = foodDetectionZone.food
@@ -28,7 +30,8 @@ func seek_Food():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	food = get_node("/root/Node/Hamburger")
+	get_parent().on_bubble_pop.connect(_on_bubble_pop)
+	food = get_node("/root/GameScreen/Hamburger")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -53,7 +56,12 @@ func _process(delta: float) -> void:
 	linear_velocity = velocity
 				
 	
-	
+func _on_bubble_pop(position: Vector2):
+	if position.distance_to(self.position) < BUBBLE_HIT_DISTANCE:
+		if food:
+			var direction = (food.position - position).normalized()
+			velocity = velocity.move_toward(-direction * MAX_SPEED, 5000)
+	#print("distance: ", position.distance_to(self.position))
 	
 	#if food and position.distance_to(food.position) > 10:
 		#var direction = (food.position - position).normalized()
