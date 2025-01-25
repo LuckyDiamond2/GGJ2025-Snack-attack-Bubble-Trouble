@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt1yao5k41uaa"]
+[gd_scene load_steps=9 format=3 uid="uid://bt1yao5k41uaa"]
 
 [ext_resource type="Script" path="res://scripts/bubble_cleanup_timer.gd" id="1_g3lkj"]
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_vcpbk"]
 [ext_resource type="Texture2D" uid="uid://crpjmfrbw6y2t" path="res://assets/background/T_Kitchen.png" id="2_k5oik"]
-[ext_resource type="AudioStream" uid="uid://dnapbn6xve8cy" path="res://assets/background/CatTypeBeat.mp3" id="3_cwh5j"]
+[ext_resource type="AudioStream" uid="uid://bjltd6r1vgwej" path="res://assets/background/CatTypeBeat.mp3" id="3_cwh5j"]
 [ext_resource type="Script" path="res://scripts/bgm_audio_stream_player.gd" id="4_bbapu"]
 [ext_resource type="PackedScene" uid="uid://ogqduk7e3hfc" path="res://scenes/t_bubble_wand.tscn" id="4_fvn4u"]
+[ext_resource type="PackedScene" uid="uid://hk1l0uw6vhs8" path="res://scenes/food/hamburger.tscn" id="7_rgc0x"]
+[ext_resource type="PackedScene" uid="uid://c0g21naslexct" path="res://scenes/cats/cat.tscn" id="8_8c6ri"]
 
 [node name="GameScreen" type="Node"]
 script = ExtResource("1_vcpbk")
@@ -31,3 +33,9 @@ auto_translate_mode = 2
 position = Vector2(974, 947)
 
 [node name="Bubbles" type="Node" parent="."]
+
+[node name="Hamburger" parent="." instance=ExtResource("7_rgc0x")]
+position = Vector2(1152, 762)
+
+[node name="Cat" parent="." instance=ExtResource("8_8c6ri")]
+position = Vector2(1751, 481)
