@@ -44,5 +44,11 @@ func play_pop_sound():
 
 func _notification(what: int):
 	if what == NOTIFICATION_PREDELETE:  # Called when node is being deleted/freed
-		get_parent().get_parent().on_bubble_pop.emit(anim.position)
+		var bubbles = get_parent()
+		if (bubbles == null):
+			return
+		var gameScreen = bubbles.get_parent()
+		if (gameScreen == null):
+			return
+		gameScreen.on_bubble_pop.emit(anim.position)
 		play_pop_sound()

@@ -1,4 +1,4 @@
-extends RigidBody2D
+class_name Cat extends RigidBody2D
 
 @export var ACCELERATION = 100
 @export var MAX_SPEED = 200
@@ -18,6 +18,7 @@ enum {
 }
 
 var state = CHASE
+var lifeCount: int = 2 # TODO: change to 9 after testing
 
 func seek_Food():
 	if foodDetectionZone2.can_see_food():
@@ -33,10 +34,8 @@ func _ready() -> void:
 	get_parent().on_bubble_pop.connect(_on_bubble_pop)
 	food = get_node("/root/GameScreen/Hamburger")
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
 	match state:
 		IDLE:
 			velocity = Vector2.ZERO
@@ -59,8 +58,13 @@ func _process(delta: float) -> void:
 func _on_bubble_pop(position: Vector2):
 	if position.distance_to(self.position) < BUBBLE_HIT_DISTANCE:
 		if food:
+			lifeCount -= 1
+			print("cat now has ", lifeCount, " left")
 			var direction = (food.position - position).normalized()
 			velocity = velocity.move_toward(-direction * MAX_SPEED, 5000)
+	
+	if lifeCount <= 0:
+		get_parent().on_cat_despawn.emit(self)
 	#print("distance: ", position.distance_to(self.position))
 	
 	#if food and position.distance_to(food.position) > 10:

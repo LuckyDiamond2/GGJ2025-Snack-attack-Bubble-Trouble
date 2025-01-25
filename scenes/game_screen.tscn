@@ -34,6 +34,9 @@ position = Vector2(1152, 762)
 [node name="Cat" parent="." instance=ExtResource("8_8c6ri")]
 position = Vector2(1751, 481)
 
+[node name="Cat2" parent="." instance=ExtResource("8_8c6ri")]
+position = Vector2(-681, 927)
+
 [node name="Bubbles" type="Node" parent="."]
 
 [node name="TBubbleWand" parent="." instance=ExtResource("4_fvn4u")]
