@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkpufb658r63q"]
+
+[ext_resource type="Texture2D" uid="uid://tksuc1ua48sl" path="res://assets/other/Temp_Playbutton.png" id="2_7wymh"]
+
+[sub_resource type="GDScript" id="GDScript_lqnby"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_play_again_button_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://scenes/game_screen.tscn\")
+	print(\"pressed 'Play Again'\")
+"
+
+[node name="WinScreen" type="Node"]
+script = SubResource("GDScript_lqnby")
+
+[node name="PlayAgainButton" type="Button" parent="."]
+offset_left = 653.0
+offset_top = 767.0
+offset_right = 1416.0
+offset_bottom = 975.0
+theme_override_font_sizes/font_size = 100
+text = "  again"
+icon = ExtResource("2_7wymh")
+
+[connection signal="pressed" from="PlayAgainButton" to="." method="_on_play_again_button_pressed"]

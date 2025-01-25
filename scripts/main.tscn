@@ -1,14 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://djh03gny11peh"]
+[gd_scene load_steps=7 format=3 uid="uid://djh03gny11peh"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jd2wx"]
 [ext_resource type="PackedScene" uid="uid://dvkrr16lq0fc0" path="res://scenes/title_screen.tscn" id="1_xbm1p"]
 [ext_resource type="PackedScene" uid="uid://bt1yao5k41uaa" path="res://scenes/game_screen.tscn" id="2_6m6l3"]
-[ext_resource type="Script" path="res://scripts/title_screen.gd" id="3_kv0pd"]
+[ext_resource type="PackedScene" uid="uid://bkpufb658r63q" path="res://scenes/win_screen.tscn" id="4_33fp4"]
+[ext_resource type="Script" path="res://scripts/win_screen.gd" id="5_pf0ur"]
+[ext_resource type="PackedScene" uid="uid://cke768xeg101o" path="res://scenes/loose_screen.tscn" id="6_qtedh"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_jd2wx")
 
 [node name="TItleScreen" parent="." instance=ExtResource("1_xbm1p")]
-script = ExtResource("3_kv0pd")
 
 [node name="GameScreen" parent="." instance=ExtResource("2_6m6l3")]
+
+[node name="WinScreen" parent="." instance=ExtResource("4_33fp4")]
+script = ExtResource("5_pf0ur")
+
+[node name="LooseScreen" parent="." instance=ExtResource("6_qtedh")]

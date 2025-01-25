@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvkrr16lq0fc0"]
+[gd_scene load_steps=3 format=3 uid="uid://dvkrr16lq0fc0"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_vcpgc"]
+[ext_resource type="Texture2D" uid="uid://tksuc1ua48sl" path="res://assets/other/Temp_Playbutton.png" id="2_5ii0f"]
 
 [node name="TItleScreen" type="Node"]
 script = ExtResource("1_vcpgc")
@@ -11,6 +12,6 @@ offset_top = 687.0
 offset_right = 1172.0
 offset_bottom = 839.0
 theme_override_font_sizes/font_size = 80
-text = "Play"
+icon = ExtResource("2_5ii0f")
 
 [connection signal="pressed" from="Playbutton" to="." method="_on_button_pressed"]

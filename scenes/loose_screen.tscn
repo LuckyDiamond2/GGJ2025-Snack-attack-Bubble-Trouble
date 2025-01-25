@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cke768xeg101o"]
+
+[ext_resource type="Script" path="res://scripts/loose_screen.gd" id="1_u12cf"]
+[ext_resource type="Texture2D" uid="uid://tksuc1ua48sl" path="res://assets/other/Temp_Playbutton.png" id="2_pdxjm"]
+
+[node name="LooseScreen" type="Node"]
+script = ExtResource("1_u12cf")
+
+[node name="PlayAgainButton" type="Button" parent="."]
+offset_left = 606.0
+offset_top = 688.0
+offset_right = 1358.0
+offset_bottom = 896.0
+theme_override_font_sizes/font_size = 100
+text = " again"
+icon = ExtResource("2_pdxjm")
+
+[connection signal="pressed" from="PlayAgainButton" to="." method="_on_play_again_button_pressed"]
