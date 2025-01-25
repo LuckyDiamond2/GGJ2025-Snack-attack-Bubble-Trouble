@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bt1yao5k41uaa"]
+[gd_scene load_steps=6 format=3 uid="uid://bt1yao5k41uaa"]
 
 [ext_resource type="Script" path="res://scripts/bubble_cleanup_timer.gd" id="1_g3lkj"]
+[ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_vcpbk"]
 [ext_resource type="Texture2D" uid="uid://crpjmfrbw6y2t" path="res://assets/background/T_Kitchen.png" id="2_k5oik"]
 [ext_resource type="AudioStream" uid="uid://bjltd6r1vgwej" path="res://assets/background/CatTypeBeat.mp3" id="3_cwh5j"]
 [ext_resource type="PackedScene" uid="uid://ogqduk7e3hfc" path="res://scenes/t_bubble_wand.tscn" id="4_fvn4u"]
 
 [node name="GameScreen" type="Node"]
+script = ExtResource("1_vcpbk")
 
 [node name="BubbleCleanupTimer" type="Node" parent="."]
 script = ExtResource("1_g3lkj")

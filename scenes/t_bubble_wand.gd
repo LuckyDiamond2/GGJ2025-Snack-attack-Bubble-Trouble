@@ -21,9 +21,6 @@ func _process(delta: float) -> void:
 func _input(event):
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseMotion:
-		#print("Mouse Motion at: ", event.position)
-		#transform.x = int(event.position.x)
-		#transform.y = int(event.position.y)
 		set_position(event.position)
 	
 	elif event is InputEventMouseButton:
@@ -37,6 +34,3 @@ func _input(event):
 		
 		cleanupTimer.add_cleanup_timer(bubble)
 		lastBubbleFiredTime = now
-	
-	# Print the size of the viewport.
-	# print("Viewport Resolution is: ", get_viewport().get_visible_rect().size)

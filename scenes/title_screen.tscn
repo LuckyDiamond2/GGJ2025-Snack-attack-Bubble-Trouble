@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://dvkrr16lq0fc0"]
+[gd_scene load_steps=2 format=3 uid="uid://dvkrr16lq0fc0"]
+
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_vcpgc"]
 
 [node name="TItleScreen" type="Node"]
+script = ExtResource("1_vcpgc")
+
+[node name="Playbutton" type="Button" parent="."]
+offset_left = 829.0
+offset_top = 687.0
+offset_right = 1172.0
+offset_bottom = 839.0
+theme_override_font_sizes/font_size = 80
+text = "Play"
+
+[connection signal="pressed" from="Playbutton" to="." method="_on_button_pressed"]
