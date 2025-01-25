@@ -1,23 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://djh03gny11peh"]
+[gd_scene load_steps=6 format=3 uid="uid://djh03gny11peh"]
 
-[ext_resource type="Texture2D" uid="uid://crpjmfrbw6y2t" path="res://assets/background/T_Kitchen.png" id="1_1ed0d"]
-[ext_resource type="PackedScene" uid="uid://ogqduk7e3hfc" path="res://scenes/t_bubble_wand.tscn" id="2_403un"]
+[ext_resource type="PackedScene" uid="uid://dvkrr16lq0fc0" path="res://scenes/title_screen.tscn" id="1_xbm1p"]
+[ext_resource type="PackedScene" uid="uid://bt1yao5k41uaa" path="res://scenes/game_screen.tscn" id="2_6m6l3"]
+[ext_resource type="PackedScene" uid="uid://bkpufb658r63q" path="res://scenes/win_screen.tscn" id="4_33fp4"]
+[ext_resource type="Script" path="res://scripts/win_screen.gd" id="5_pf0ur"]
+[ext_resource type="PackedScene" uid="uid://cke768xeg101o" path="res://scenes/loose_screen.tscn" id="6_qtedh"]
 [ext_resource type="PackedScene" uid="uid://hk1l0uw6vhs8" path="res://scenes/food/hamburger.tscn" id="3_3a2as"]
 [ext_resource type="PackedScene" uid="uid://c0g21naslexct" path="res://scenes/cats/cat.tscn" id="4_6oxlf"]
 
+
 [node name="Node" type="Node"]
 
-[node name="background" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="TItleScreen" parent="." instance=ExtResource("1_xbm1p")]
 
-[node name="TKitchen" type="Sprite2D" parent="background"]
-position = Vector2(959, 539)
-texture = ExtResource("1_1ed0d")
+[node name="GameScreen" parent="." instance=ExtResource("2_6m6l3")]
 
-[node name="TBubbleWand" parent="." instance=ExtResource("2_403un")]
-auto_translate_mode = 2
-position = Vector2(387, 900)
+
+[node name="WinScreen" parent="." instance=ExtResource("4_33fp4")]
+script = ExtResource("5_pf0ur")
+
+[node name="LooseScreen" parent="." instance=ExtResource("6_qtedh")]
 
 [node name="Hamburger" parent="." instance=ExtResource("3_3a2as")]
 position = Vector2(1152, 762)
