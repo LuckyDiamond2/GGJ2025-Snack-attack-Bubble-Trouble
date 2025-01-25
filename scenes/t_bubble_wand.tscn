@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ogqduk7e3hfc"]
+
+[ext_resource type="Texture2D" uid="uid://dmvdtilmhioqh" path="res://assets/bubblewand/T_BubbleWand.png" id="1_jyt3u"]
+[ext_resource type="Script" path="res://scenes/t_bubble_wand.gd" id="2_v6y50"]
+
+[node name="TBubbleWand" type="Sprite2D"]
+texture = ExtResource("1_jyt3u")
+script = ExtResource("2_v6y50")

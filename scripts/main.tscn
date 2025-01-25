@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://djh03gny11peh"]
+
+[ext_resource type="Texture2D" uid="uid://crpjmfrbw6y2t" path="res://assets/background/T_Kitchen.png" id="1_1ed0d"]
+[ext_resource type="PackedScene" uid="uid://ogqduk7e3hfc" path="res://scenes/t_bubble_wand.tscn" id="2_403un"]
+
+[node name="Node" type="Node"]
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TKitchen" type="Sprite2D" parent="background"]
+position = Vector2(960, -540)
+texture = ExtResource("1_1ed0d")
+
+[node name="TBubbleWand" parent="." instance=ExtResource("2_403un")]
+position = Vector2(856, -548)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -1080)
+scale = Vector2(-5692.2, 4750.52)
+anchor_mode = 0
+zoom = Vector2(0.6, 0.6)
