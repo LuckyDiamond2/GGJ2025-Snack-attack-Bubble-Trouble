@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0g21naslexct"]
+[gd_scene load_steps=8 format=3 uid="uid://c0g21naslexct"]
 
 [ext_resource type="Texture2D" uid="uid://ceot6vd3pdq4v" path="res://assets/cats/T_idleC_1.png" id="1_csq5f"]
 [ext_resource type="Script" path="res://scenes/cats/cat.gd" id="1_gvt1u"]
+[ext_resource type="PackedScene" uid="uid://q15hybayqdt4" path="res://scenes/cats/food_detection_zone.tscn" id="3_6h4g1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6g4tg"]
 animations = [{
@@ -17,8 +18,16 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_lai2c"]
 radius = 87.0517
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_83f21"]
+radius = 320.025
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6el1o"]
+radius = 108.005
+
 [node name="Cat" type="RigidBody2D"]
+collision_mask = 2
 gravity_scale = 0.0
+lock_rotation = true
 script = ExtResource("1_gvt1u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -29,3 +38,18 @@ sprite_frames = SubResource("SpriteFrames_6g4tg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_lai2c")
+
+[node name="FoodDetectionZone" parent="." instance=ExtResource("3_6h4g1")]
+
+[node name="CollisionShape2D" parent="FoodDetectionZone" index="0"]
+shape = SubResource("CircleShape2D_83f21")
+debug_color = Color(0, 0.6, 0.701961, 0.0745098)
+
+[node name="FoodDetectionZone2" parent="." instance=ExtResource("3_6h4g1")]
+
+[node name="CollisionShape2D" parent="FoodDetectionZone2" index="0"]
+shape = SubResource("CircleShape2D_6el1o")
+debug_color = Color(0, 0.6, 0.701961, 0.176471)
+
+[editable path="FoodDetectionZone"]
+[editable path="FoodDetectionZone2"]

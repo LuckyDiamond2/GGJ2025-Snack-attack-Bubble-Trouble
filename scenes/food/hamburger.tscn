@@ -6,6 +6,7 @@
 radius = 44.0454
 
 [node name="Hamburger" type="StaticBody2D"]
+collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8.84375, 1.84375)
