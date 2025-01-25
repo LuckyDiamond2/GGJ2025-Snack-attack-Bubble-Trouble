@@ -13,6 +13,7 @@ config_version=5
 config/name="GGJ2025"
 run/main_scene="res://scenes/title_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon="res://assets/T_GameIcon.png"
 
 [display]
 
