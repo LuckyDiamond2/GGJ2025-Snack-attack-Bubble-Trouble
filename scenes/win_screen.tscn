@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkpufb658r63q"]
 
-[ext_resource type="Texture2D" uid="uid://3areb4fcd58e" path="res://assets/other/Temp_Playbutton.png" id="2_7wymh"]
+[ext_resource type="Texture2D" uid="uid://dyed250xfmc8w" path="res://assets/other/T_PlayAgain.png" id="1_747ey"]
 
 [sub_resource type="GDScript" id="GDScript_lqnby"]
 script/source = "extends Node
@@ -27,10 +27,11 @@ script = SubResource("GDScript_lqnby")
 [node name="PlayAgainButton" type="Button" parent="."]
 offset_left = 653.0
 offset_top = 767.0
-offset_right = 1416.0
+offset_right = 1139.0
 offset_bottom = 975.0
 theme_override_font_sizes/font_size = 100
-text = "  again"
-icon = ExtResource("2_7wymh")
+text = "  "
+icon = ExtResource("1_747ey")
+icon_alignment = 1
 
 [connection signal="pressed" from="PlayAgainButton" to="." method="_on_play_again_button_pressed"]

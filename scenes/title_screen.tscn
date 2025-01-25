@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvkrr16lq0fc0"]
+[gd_scene load_steps=6 format=3 uid="uid://dvkrr16lq0fc0"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_vcpgc"]
-[ext_resource type="Texture2D" uid="uid://3areb4fcd58e" path="res://assets/other/Temp_Playbutton.png" id="2_5ii0f"]
+[ext_resource type="Texture2D" uid="uid://dxe8wyb1ulisv" path="res://assets/other/T_Play.png" id="2_2a4il"]
+[ext_resource type="Texture2D" uid="uid://cvkibel0vfi4j" path="res://assets/other/T_Startbutton.png" id="3_gag6i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tf5f6"]
 font_size = 32
@@ -13,12 +14,22 @@ font_size = 32
 script = ExtResource("1_vcpgc")
 
 [node name="Playbutton" type="Button" parent="."]
-offset_left = 829.0
-offset_top = 687.0
-offset_right = 1172.0
-offset_bottom = 839.0
+offset_left = 805.0
+offset_top = 608.0
+offset_right = 1260.0
+offset_bottom = 816.0
 theme_override_font_sizes/font_size = 80
-icon = ExtResource("2_5ii0f")
+icon = ExtResource("2_2a4il")
+icon_alignment = 1
+
+[node name="Playbutton2" type="Button" parent="."]
+offset_left = 784.0
+offset_top = 55.0
+offset_right = 1304.0
+offset_bottom = 575.0
+theme_override_font_sizes/font_size = 80
+icon = ExtResource("3_gag6i")
+icon_alignment = 1
 
 [node name="BGMVolume" type="Node" parent="."]
 
@@ -59,5 +70,6 @@ step = 0.05
 value = 0.5
 
 [connection signal="pressed" from="Playbutton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Playbutton2" to="." method="_on_button_pressed"]
 [connection signal="value_changed" from="BGMVolume/HSlider" to="." method="_on_bmg_slider_value_changed"]
 [connection signal="value_changed" from="EffectVolume/HSlider" to="." method="_on_effect_slider_value_changed"]
