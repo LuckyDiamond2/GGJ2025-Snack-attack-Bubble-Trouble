@@ -17,12 +17,11 @@ func _process(delta: float) -> void:
 
 func _on_change_bgm_volume(value: float):
 	bgm_volume = value
-	print("bgm_volume: ", value)
-	pass
+	#print("bgm_volume: ", value)
 
 func _on_change_effect_volume(value: float):
 	effect_volume = value
-	print("effect_volume: ", value)
+	#print("effect_volume: ", value)
 
 func get_bgm_volume() -> float:
 	return bgm_volume

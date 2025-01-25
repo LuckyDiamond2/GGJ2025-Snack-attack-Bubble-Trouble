@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bt1yao5k41uaa"]
+[gd_scene load_steps=7 format=3 uid="uid://bt1yao5k41uaa"]
 
 [ext_resource type="Script" path="res://scripts/bubble_cleanup_timer.gd" id="1_g3lkj"]
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_vcpbk"]

@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvkrr16lq0fc0"]
+[gd_scene load_steps=5 format=3 uid="uid://dvkrr16lq0fc0"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_vcpgc"]
-[ext_resource type="Texture2D" uid="uid://tksuc1ua48sl" path="res://assets/other/Temp_Playbutton.png" id="2_5ii0f"]
+[ext_resource type="Texture2D" uid="uid://3areb4fcd58e" path="res://assets/other/Temp_Playbutton.png" id="2_5ii0f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tf5f6"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_fl26a"]
+font_size = 32
 
 [node name="TItleScreen" type="Node"]
 script = ExtResource("1_vcpgc")
@@ -14,11 +20,6 @@ offset_bottom = 839.0
 theme_override_font_sizes/font_size = 80
 icon = ExtResource("2_5ii0f")
 
-[connection signal="pressed" from="Playbutton" to="." method="_on_button_pressed"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_kpcpx"]
-font_size = 32
-
 [node name="BGMVolume" type="Node" parent="."]
 
 [node name="Label" type="Label" parent="BGMVolume"]
@@ -27,7 +28,7 @@ offset_top = 912.0
 offset_right = 1590.0
 offset_bottom = 957.0
 text = "Background Volume"
-label_settings = SubResource("LabelSettings_kpcpx")
+label_settings = SubResource("LabelSettings_tf5f6")
 
 [node name="HSlider" type="HSlider" parent="BGMVolume"]
 offset_left = 1636.0
@@ -46,7 +47,7 @@ offset_top = 990.0
 offset_right = 1590.0
 offset_bottom = 1035.0
 text = "Effects Volume"
-label_settings = SubResource("LabelSettings_kpcpx")
+label_settings = SubResource("LabelSettings_fl26a")
 
 [node name="HSlider" type="HSlider" parent="EffectVolume"]
 offset_left = 1636.0
@@ -57,5 +58,6 @@ max_value = 1.0
 step = 0.05
 value = 0.5
 
+[connection signal="pressed" from="Playbutton" to="." method="_on_button_pressed"]
 [connection signal="value_changed" from="BGMVolume/HSlider" to="." method="_on_bmg_slider_value_changed"]
 [connection signal="value_changed" from="EffectVolume/HSlider" to="." method="_on_effect_slider_value_changed"]
