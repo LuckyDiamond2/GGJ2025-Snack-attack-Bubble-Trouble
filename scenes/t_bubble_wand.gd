@@ -17,7 +17,7 @@ func _input(event):
 		print("Mouse Motion at: ", event.position)
 		#transform.x = int(event.position.x)
 		#transform.y = int(event.position.y)
-		set_position(event.position + Vector2(500,-800))
+		set_position(event.position)
 	
 	elif event is InputEventMouseButton:
 		print("shoot")

@@ -10,14 +10,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TKitchen" type="Sprite2D" parent="background"]
-position = Vector2(960, -540)
+position = Vector2(959, 539)
 texture = ExtResource("1_1ed0d")
 
 [node name="TBubbleWand" parent="." instance=ExtResource("2_403un")]
-position = Vector2(856, -548)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -1080)
-scale = Vector2(-5692.2, 4750.52)
-anchor_mode = 0
-zoom = Vector2(0.6, 0.6)
+auto_translate_mode = 2
+position = Vector2(974, 947)
