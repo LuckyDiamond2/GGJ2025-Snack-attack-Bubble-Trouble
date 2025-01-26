@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0g21naslexct"]
+[gd_scene load_steps=11 format=3 uid="uid://c0g21naslexct"]
 
-[ext_resource type="Texture2D" uid="uid://c3c8ch7glcaew" path="res://assets/cats/T_idleC_1.png" id="1_csq5f"]
+[ext_resource type="Texture2D" uid="uid://ceot6vd3pdq4v" path="res://assets/cats/T_idleC_1.png" id="1_csq5f"]
 [ext_resource type="Script" path="res://scenes/cats/cat.gd" id="1_gvt1u"]
 [ext_resource type="PackedScene" uid="uid://q15hybayqdt4" path="res://scenes/cats/food_detection_zone.tscn" id="3_6h4g1"]
+[ext_resource type="Texture2D" uid="uid://butg5x41nafnw" path="res://assets/cats/L_runC_2.png" id="3_wriwf"]
+[ext_resource type="Texture2D" uid="uid://d3julqyjpum2e" path="res://assets/cats/L_runC_3.png" id="4_c6ekt"]
+[ext_resource type="Texture2D" uid="uid://bqqlbdewd6vup" path="res://assets/cats/L_scaredC_1.png" id="5_vpmeq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6g4tg"]
 animations = [{
@@ -11,7 +14,26 @@ animations = [{
 "texture": ExtResource("1_csq5f")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wriwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c6ekt")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_vpmeq")
+}],
+"loop": true,
+"name": &"scared",
 "speed": 5.0
 }]
 
@@ -34,6 +56,8 @@ script = ExtResource("1_gvt1u")
 position = Vector2(-0.250013, 2.74999)
 scale = Vector2(0.458008, 0.458008)
 sprite_frames = SubResource("SpriteFrames_6g4tg")
+animation = &"scared"
+autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
@@ -50,6 +74,12 @@ debug_color = Color(0, 0.6, 0.701961, 0.0745098)
 [node name="CollisionShape2D" parent="FoodDetectionZone2" index="0"]
 shape = SubResource("CircleShape2D_6el1o")
 debug_color = Color(0, 0.6, 0.701961, 0.176471)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="FoodDetectionZone"]
 [editable path="FoodDetectionZone2"]

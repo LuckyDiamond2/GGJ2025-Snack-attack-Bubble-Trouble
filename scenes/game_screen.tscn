@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/bubble_cleanup_timer.gd" id="1_g3lkj"]
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_vcpbk"]
 [ext_resource type="Texture2D" uid="uid://crpjmfrbw6y2t" path="res://assets/background/T_Kitchen.png" id="2_k5oik"]
-[ext_resource type="AudioStream" uid="uid://dnapbn6xve8cy" path="res://assets/background/CatTypeBeat.mp3" id="3_cwh5j"]
+[ext_resource type="AudioStream" uid="uid://baokkgt23twdy" path="res://assets/background/CatTypeBeat.mp3" id="3_cwh5j"]
 [ext_resource type="Script" path="res://scripts/bgm_audio_stream_player.gd" id="4_bbapu"]
 [ext_resource type="PackedScene" uid="uid://ogqduk7e3hfc" path="res://scenes/t_bubble_wand.tscn" id="4_fvn4u"]
 [ext_resource type="PackedScene" uid="uid://hk1l0uw6vhs8" path="res://scenes/food/hamburger.tscn" id="7_rgc0x"]
@@ -29,16 +29,52 @@ autoplay = true
 script = ExtResource("4_bbapu")
 
 [node name="Hamburger" parent="." instance=ExtResource("7_rgc0x")]
-position = Vector2(1152, 762)
+position = Vector2(854, 683)
 
-[node name="Cat" parent="." instance=ExtResource("8_8c6ri")]
-position = Vector2(1751, 481)
+[node name="GeneratedCats" type="Node2D" parent="."]
 
-[node name="Cat2" parent="." instance=ExtResource("8_8c6ri")]
+[node name="Cat2" parent="GeneratedCats" instance=ExtResource("8_8c6ri")]
 position = Vector2(-681, 927)
+
+[node name="Cat" parent="GeneratedCats" instance=ExtResource("8_8c6ri")]
+position = Vector2(1826, 989)
 
 [node name="Bubbles" type="Node" parent="."]
 
 [node name="TBubbleWand" parent="." instance=ExtResource("4_fvn4u")]
 auto_translate_mode = 2
 position = Vector2(974, 947)
+
+[node name="StartPoints" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="StartPoints"]
+position = Vector2(432, 1070)
+
+[node name="Marker2D2" type="Marker2D" parent="StartPoints"]
+position = Vector2(1909, 1072)
+
+[node name="Marker2D3" type="Marker2D" parent="StartPoints"]
+position = Vector2(8, 987)
+
+[node name="Marker2D4" type="Marker2D" parent="StartPoints"]
+position = Vector2(1376, 1072)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.871
+anchor_top = 0.144
+anchor_right = 0.871
+anchor_bottom = 0.144
+offset_left = -20.3201
+offset_top = -11.52
+offset_right = 19.6799
+offset_bottom = 11.48
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_cat_spawn_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_win_timer_timeout"]
