@@ -6,7 +6,7 @@ signal on_cat_reaches_food()
 
 var catManager: CatManager
 var cat_scene: PackedScene = preload("res://scenes/cats/cat.tscn")
-var countdown_timer = 45
+var countdown_timer = 120
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

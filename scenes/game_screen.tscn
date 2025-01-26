@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/bubble_cleanup_timer.gd" id="1_g3lkj"]
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_vcpbk"]
 [ext_resource type="Texture2D" uid="uid://crpjmfrbw6y2t" path="res://assets/background/T_Kitchen.png" id="2_k5oik"]
-[ext_resource type="AudioStream" uid="uid://dnapbn6xve8cy" path="res://assets/background/CatTypeBeat.mp3" id="3_cwh5j"]
+[ext_resource type="AudioStream" uid="uid://c332kau1rffi8" path="res://assets/background/CatTypeBeat.mp3" id="3_cwh5j"]
 [ext_resource type="Script" path="res://scripts/bgm_audio_stream_player.gd" id="4_bbapu"]
 [ext_resource type="PackedScene" uid="uid://ogqduk7e3hfc" path="res://scenes/t_bubble_wand.tscn" id="4_fvn4u"]
 [ext_resource type="PackedScene" uid="uid://hk1l0uw6vhs8" path="res://scenes/food/hamburger.tscn" id="7_rgc0x"]
@@ -30,7 +30,7 @@ parameters/looping = false
 script = ExtResource("4_bbapu")
 
 [node name="Hamburger" parent="." instance=ExtResource("7_rgc0x")]
-position = Vector2(854, 683)
+position = Vector2(1013, 676)
 
 [node name="GeneratedCats" type="Node2D" parent="."]
 
@@ -58,7 +58,7 @@ position = Vector2(8, 987)
 position = Vector2(1376, 1072)
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 7.0
+wait_time = 18.0
 autostart = true
 
 [node name="Timer" type="Timer" parent="."]
