@@ -26,6 +26,7 @@ texture = ExtResource("2_k5oik")
 [node name="BGMAudioStreamPlayer" type="AudioStreamPlayer" parent="background"]
 stream = ExtResource("3_cwh5j")
 autoplay = true
+parameters/looping = false
 script = ExtResource("4_bbapu")
 
 [node name="Hamburger" parent="." instance=ExtResource("7_rgc0x")]

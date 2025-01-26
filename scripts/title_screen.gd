@@ -28,3 +28,8 @@ func _on_effect_slider_value_changed(value: float) -> void:
 func _on_quit_button_pressed() -> void:
 	print("quit game from title screen")
 	get_tree().quit()
+
+
+func _on_credits_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/credit_screen.tscn")
+	print("pressed 'credits'")

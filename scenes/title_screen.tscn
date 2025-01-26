@@ -98,9 +98,18 @@ max_value = 1.0
 step = 0.05
 value = 0.5
 
+[node name="Credits" type="Button" parent="."]
+offset_left = 1718.0
+offset_top = 964.0
+offset_right = 1909.0
+offset_bottom = 1049.0
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+
 [connection signal="pressed" from="Playbuttonbubble" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Playbutton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="QuitGameButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="QuitGameBubbleButton" to="." method="_on_quit_button_pressed"]
 [connection signal="value_changed" from="BGMVolume/HSlider" to="." method="_on_bmg_slider_value_changed"]
 [connection signal="value_changed" from="EffectVolume/HSlider" to="." method="_on_effect_slider_value_changed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
