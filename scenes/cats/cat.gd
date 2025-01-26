@@ -46,6 +46,8 @@ func _ready() -> void:
 	player = AudioStreamPlayer.new()
 	player.volume_db = linear_to_db($"/root/Settings".get_effect_volume()) + 9
 	add_child(player)
+	
+	lifeCount = $"/root/Settings".get_cat_lifes()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

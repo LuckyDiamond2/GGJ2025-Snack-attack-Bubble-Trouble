@@ -33,3 +33,8 @@ func _on_quit_button_pressed() -> void:
 func _on_credits_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/credit_screen.tscn")
 	print("pressed 'credits'")
+
+
+func _on_cat_life_value_changed(value: float) -> void:
+	$"/root/Settings".change_cat_lifes.emit(int(value))
+	$CatLifes/LabelValue.text = str(int(value))

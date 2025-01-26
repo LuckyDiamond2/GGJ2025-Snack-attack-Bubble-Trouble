@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://dvkrr16lq0fc0"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_vcpgc"]
-[ext_resource type="Texture2D" uid="uid://b3mdptjtxbo2i" path="res://assets/other/T_Play.png" id="2_2a4il"]
-[ext_resource type="Texture2D" uid="uid://dcsqjhtuao55q" path="res://assets/background/T_MainMenu.png" id="2_y8yrg"]
-[ext_resource type="Texture2D" uid="uid://cyadfyffe5gq2" path="res://assets/other/T_Startbutton.png" id="3_gag6i"]
-[ext_resource type="Texture2D" uid="uid://cxdo6hcaf56fh" path="res://assets/other/T_QuitButton.png" id="5_abso7"]
-[ext_resource type="Texture2D" uid="uid://dgu03qlkn5luw" path="res://assets/other/T_QuitB.png" id="5_f4dd7"]
+[ext_resource type="Texture2D" uid="uid://dxe8wyb1ulisv" path="res://assets/other/T_Play.png" id="2_2a4il"]
+[ext_resource type="Texture2D" uid="uid://gjcrohurwjf" path="res://assets/background/T_MainMenu.png" id="2_y8yrg"]
+[ext_resource type="Texture2D" uid="uid://cvkibel0vfi4j" path="res://assets/other/T_Startbutton.png" id="3_gag6i"]
+[ext_resource type="Texture2D" uid="uid://8iyi6ueij8om" path="res://assets/other/T_QuitButton.png" id="5_abso7"]
+[ext_resource type="Texture2D" uid="uid://ci6bjq45vj6st" path="res://assets/other/T_QuitB.png" id="5_f4dd7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tf5f6"]
 font_size = 32
@@ -98,6 +98,33 @@ max_value = 1.0
 step = 0.05
 value = 0.5
 
+[node name="CatLifes" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="CatLifes"]
+offset_left = 21.0
+offset_top = 496.0
+offset_right = 333.0
+offset_bottom = 541.0
+text = "Cat Lifes"
+label_settings = SubResource("LabelSettings_fl26a")
+
+[node name="LabelValue" type="Label" parent="CatLifes"]
+offset_left = 285.0
+offset_top = 493.0
+offset_right = 339.0
+offset_bottom = 538.0
+text = "9"
+label_settings = SubResource("LabelSettings_fl26a")
+
+[node name="HSlider" type="HSlider" parent="CatLifes"]
+offset_left = 349.0
+offset_top = 478.0
+offset_right = 592.0
+offset_bottom = 558.0
+min_value = 1.0
+max_value = 18.0
+value = 9.0
+
 [node name="Credits" type="Button" parent="."]
 offset_left = 1718.0
 offset_top = 964.0
@@ -112,4 +139,5 @@ text = "Credits"
 [connection signal="pressed" from="QuitGameBubbleButton" to="." method="_on_quit_button_pressed"]
 [connection signal="value_changed" from="BGMVolume/HSlider" to="." method="_on_bmg_slider_value_changed"]
 [connection signal="value_changed" from="EffectVolume/HSlider" to="." method="_on_effect_slider_value_changed"]
+[connection signal="value_changed" from="CatLifes/HSlider" to="." method="_on_cat_life_value_changed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
