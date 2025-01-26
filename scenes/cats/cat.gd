@@ -16,14 +16,17 @@ var bubble_hit = [preload("res://assets/cats/mreor.mp3"),
 				
 var player
 
+var despawnTimer: Timer
+
 enum {
 	IDLE,
 	WANDER,
-	CHASE
+	CHASE,
+	ESCAPE
 }
 
 var state = CHASE
-var lifeCount: int = 2 # TODO: change to 9 after testing
+var lifeCount: int = 9
 
 func seek_Food():
 	if foodDetectionZone2.can_see_food():
@@ -55,16 +58,32 @@ func _process(delta: float) -> void:
 			seek_Food()
 			if food:
 				var direction = (food.position - position).normalized()
+				velocity = velocity.move_toward(direction * MAX_SPEED * 1.5, ACCELERATION * 1.5 * delta)
+				
+				if direction.x > 0:
+					sprite.flip_h = true # Moving right
+				elif direction.x < 0:
+					sprite.flip_h = false # Moving left
+		ESCAPE:
+			if food:
+				var direction = -(food.position - position).normalized()
 				velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 				
 				if direction.x > 0:
 					sprite.flip_h = true # Moving right
 				elif direction.x < 0:
 					sprite.flip_h = false # Moving left
+			else:
+				var direction = Vector2(0.2, -1).normalized()
+				velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 				
+				if direction.x > 0:
+					sprite.flip_h = true # Moving right
+				elif direction.x < 0:
+					sprite.flip_h = false # Moving left
 	linear_velocity = velocity
-				
-	
+
+
 func _on_bubble_pop(position: Vector2):
 	if is_targetable:
 		if position.distance_to(self.position) < BUBBLE_HIT_DISTANCE:
@@ -76,14 +95,17 @@ func _on_bubble_pop(position: Vector2):
 				print("cat now has ", lifeCount, " left")
 				var direction = (food.position - position).normalized()
 				velocity = velocity.move_toward(-direction * MAX_SPEED, 5000)
-				
+
 				var rand_pitch_scale = randf_range(0.5, 1.5)
 				player.pitch_scale = rand_pitch_scale
 				player.stream = bubble_hit.pick_random()
 				player.play()
-		
+
 		if lifeCount <= 0:
-			get_parent().get_parent().on_cat_despawn.emit(self)
+			state = ESCAPE
+			despawnTimer = CleanupTimer.new_timer(self)
+			despawnTimer.setup()
+			despawnTimer.start()
 
 
 func _on_timer_timeout() -> void:

@@ -14,5 +14,5 @@ func setup():
 	connect("timeout", _on_timer_timeout)
 
 func _on_timer_timeout() -> void:
-	queue_free()
 	node.queue_free()
+	queue_free()
