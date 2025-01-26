@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://du2uhmdid5cew"]
+[gd_scene load_steps=4 format=3 uid="uid://du2uhmdid5cew"]
 
 [ext_resource type="Script" path="res://scripts/credit_screen.gd" id="1_pypu3"]
-[ext_resource type="Texture2D" uid="uid://dcsqjhtuao55q" path="res://assets/background/T_MainMenu.png" id="2_d5tei"]
+[ext_resource type="Texture2D" uid="uid://brle2rutc4ayg" path="res://assets/background/Credits.png" id="2_t28hb"]
 [ext_resource type="Texture2D" uid="uid://vs446etculmn" path="res://assets/other/T_MenuButton.png" id="6_tb14c"]
-[ext_resource type="Texture2D" uid="uid://x5wtsfuclfoh" path="res://assets/other/T_MenuB.png" id="7_f1qgo"]
 
 [node name="CreditScreen" type="Node"]
 script = ExtResource("1_pypu3")
@@ -11,99 +10,15 @@ script = ExtResource("1_pypu3")
 [node name="background" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_d5tei")
+texture = ExtResource("2_t28hb")
 
 [node name="MenuButton" type="Button" parent="."]
-offset_left = -86.0
-offset_top = 194.0
-offset_right = 434.0
-offset_bottom = 714.0
+offset_left = 1566.0
+offset_top = 706.0
+offset_right = 2086.0
+offset_bottom = 1226.0
+scale = Vector2(0.8, 0.8)
 icon = ExtResource("6_tb14c")
 flat = true
 
-[node name="MenuBubbleButton" type="Button" parent="."]
-offset_left = 152.0
-offset_top = 193.0
-offset_right = 560.0
-offset_bottom = 401.0
-icon = ExtResource("7_f1qgo")
-flat = true
-
-[node name="credits" type="Node" parent="."]
-
-[node name="headline" type="Label" parent="credits"]
-offset_left = 415.0
-offset_top = 21.0
-offset_right = 1357.0
-offset_bottom = 90.0
-text = "A game by:
-Albert Kiener, Emily Rose Adams \"Emi\", Korbinian Staudacher \"Korbi\", Theresa Krottenthaler \"Teri\",  Vanessa Kuhn \"Vaku\".
-"
-
-[node name="credits left" type="Label" parent="credits"]
-offset_left = 634.0
-offset_top = 133.0
-offset_right = 967.0
-offset_bottom = 1040.0
-text = "Game Development: Albert, Korbi, Teri
-
-Programming: Albert, Korbi, Teri
-
-QA testing: Albert, Korbi, Teri, Vaku
-
-Game design: Albert, Korbi, Teri, Emi, Vaku,
-
-2d art: Emi, Vaku
-
-Character design: Emi, Vaku
-
-Animation: Vaku
-
-Bg art: Emi
-
-Sound design: Emi, Vaku
-
-Voice: Emi
-
-Music: Emi
-
-Lead smartist: Albert
-
-Bug whisperer: Korbi
-
-Chief bubble technician: Teri
-
-Snack security specialist: Vaku
-
-Feline Illustrator Extraordinaire: Emi
-
-Professional cat distractor: Albert
-
-Cat inpersonation expert: Emi"
-
-[node name="credits right" type="Label" parent="credits"]
-offset_left = 939.0
-offset_top = 410.0
-offset_right = 1404.0
-offset_bottom = 1317.0
-text = "Special Thanks to
-
-Our cats:  For the Inspiration... 
-
-Snacks: For enduring the chaos and being delicious
-
-Spezi: Spezi
-
-Game Dev Regensburg: for Hosting this Event site (and food)
-
-this Image:
- https://www.instagram.com/p/CdtWkvfO9nJ/?
-img_index=1&igsh=MTJidDlsZTJjYjR3aA%3D%3D
-
-
-Powered by:
-
-A Lifetime of spilled Snacks and stolen sandwiches"
-
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="MenuBubbleButton" to="." method="_on_menu_button_pressed"]
