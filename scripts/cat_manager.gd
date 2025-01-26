@@ -16,5 +16,6 @@ func add_cat(cat: Cat):
 func remove_cat(cat: Cat):
 	cats.erase(cat)
 	cat.queue_free()
-	if cats.is_empty():
-		get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
+	# TODO: make cat run away instead of just deleting it
+	#if cats.is_empty():
+		#get_tree().change_scene_to_file("res://scenes/win_screen.tscn")
