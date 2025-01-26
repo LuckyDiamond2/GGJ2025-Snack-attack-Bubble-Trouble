@@ -1,9 +1,19 @@
 extends Node
 
+var cat_nye = [preload("res://assets/cats/Nyehehehe.mp3"),
+			   preload("res://assets/cats/Neenerneener.mp3")]
+			
+var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	player = AudioStreamPlayer.new()
+	player.volume_db = linear_to_db($"/root/Settings".get_effect_volume()) + 25
+	add_child(player)
+	var rand_pitch_scale = randf_range(0.7, 1.3)
+	player.pitch_scale = rand_pitch_scale
+	player.stream = cat_nye.pick_random()
+	player.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

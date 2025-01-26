@@ -1,20 +1,33 @@
 [gd_scene load_steps=9 format=3 uid="uid://bkpufb658r63q"]
 
-[ext_resource type="Texture2D" uid="uid://dyed250xfmc8w" path="res://assets/other/T_PlayAgain.png" id="1_747ey"]
-[ext_resource type="Texture2D" uid="uid://bgmpnlgrta7ov" path="res://assets/background/T_YouWinFin.png" id="1_xg6rx"]
-[ext_resource type="Texture2D" uid="uid://cgvj4bx2fhd8i" path="res://assets/other/T_TryAgainButton.png" id="2_oa8ve"]
-[ext_resource type="Texture2D" uid="uid://8iyi6ueij8om" path="res://assets/other/T_QuitButton.png" id="3_rr4mo"]
-[ext_resource type="Texture2D" uid="uid://ci6bjq45vj6st" path="res://assets/other/T_QuitB.png" id="5_o2l1n"]
-[ext_resource type="Texture2D" uid="uid://biqf0fc04bccs" path="res://assets/other/T_MenuButton.png" id="6_gehgr"]
-[ext_resource type="Texture2D" uid="uid://bqpcrbcxddnj5" path="res://assets/other/T_MenuB.png" id="6_v41x5"]
+[ext_resource type="Texture2D" uid="uid://ckp8b3ww5q2x" path="res://assets/other/T_PlayAgain.png" id="1_747ey"]
+[ext_resource type="Texture2D" uid="uid://dg6mjobdscicj" path="res://assets/background/T_YouWinFin.png" id="1_xg6rx"]
+[ext_resource type="Texture2D" uid="uid://caor8oifhdd8t" path="res://assets/other/T_TryAgainButton.png" id="2_oa8ve"]
+[ext_resource type="Texture2D" uid="uid://relrmuf70g0r" path="res://assets/other/T_QuitButton.png" id="3_rr4mo"]
+[ext_resource type="Texture2D" uid="uid://cnvr3dqim7qro" path="res://assets/other/T_QuitB.png" id="5_o2l1n"]
+[ext_resource type="Texture2D" uid="uid://cj4gtm27vulu7" path="res://assets/other/T_MenuButton.png" id="6_gehgr"]
+[ext_resource type="Texture2D" uid="uid://b7i6v3kg5uwgn" path="res://assets/other/T_MenuB.png" id="6_v41x5"]
 
 [sub_resource type="GDScript" id="GDScript_lqnby"]
 script/source = "extends Node
 
 
+var cat_meow = [preload(\"res://assets/cats/Meow1.mp3\"),
+				preload(\"res://assets/cats/Meow2.mp3\"),
+				preload(\"res://assets/cats/DeepMeow.mp3\"),
+				preload(\"res://assets/cats/GhostMeow.mp3\")]
+
+var player
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	player = AudioStreamPlayer.new()
+	player.volume_db = linear_to_db($\"/root/Settings\".get_effect_volume()) + 30
+	add_child(player)
+	var rand_pitch_scale = randf_range(0.7, 1.3)
+	player.pitch_scale = rand_pitch_scale
+	player.stream = cat_meow.pick_random()
+	player.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
