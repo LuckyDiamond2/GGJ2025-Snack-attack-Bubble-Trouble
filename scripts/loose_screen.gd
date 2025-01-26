@@ -38,8 +38,5 @@ func quitGame() -> void:
 
 # menu bubble button
 func _on_menu_bubble_button_pressed() -> void:
-	toMenu()
-
-func toMenu() -> void:
 	get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
 	print("pressed 'Menu' from loose screen")

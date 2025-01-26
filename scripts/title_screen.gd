@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_button_pressed() -> void:
+func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game_screen.tscn")
 	print("pressed 'Play'")
 
@@ -23,3 +23,8 @@ func _on_bmg_slider_value_changed(value: float) -> void:
 
 func _on_effect_slider_value_changed(value: float) -> void:
 	$"/root/Settings".change_effect_volume.emit(value)
+
+
+func _on_quit_button_pressed() -> void:
+	print("quit game from title screen")
+	get_tree().quit()

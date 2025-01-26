@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvkrr16lq0fc0"]
+[gd_scene load_steps=9 format=3 uid="uid://dvkrr16lq0fc0"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_vcpgc"]
 [ext_resource type="Texture2D" uid="uid://b3mdptjtxbo2i" path="res://assets/other/T_Play.png" id="2_2a4il"]
+[ext_resource type="Texture2D" uid="uid://dcsqjhtuao55q" path="res://assets/background/T_MainMenu.png" id="2_y8yrg"]
 [ext_resource type="Texture2D" uid="uid://cyadfyffe5gq2" path="res://assets/other/T_Startbutton.png" id="3_gag6i"]
+[ext_resource type="Texture2D" uid="uid://cxdo6hcaf56fh" path="res://assets/other/T_QuitButton.png" id="5_abso7"]
+[ext_resource type="Texture2D" uid="uid://dgu03qlkn5luw" path="res://assets/other/T_QuitB.png" id="5_f4dd7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tf5f6"]
 font_size = 32
@@ -13,25 +16,49 @@ font_size = 32
 [node name="TItleScreen" type="Node"]
 script = ExtResource("1_vcpgc")
 
-[node name="Playbutton" type="Button" parent="."]
-offset_left = 805.0
-offset_top = 608.0
-offset_right = 1260.0
-offset_bottom = 816.0
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
+position = Vector2(960, 540)
+texture = ExtResource("2_y8yrg")
+
+[node name="Playbuttonbubble" type="Button" parent="."]
+offset_left = 748.0
+offset_top = 20.0
+offset_right = 1203.0
+offset_bottom = 228.0
 theme_override_font_sizes/font_size = 80
 icon = ExtResource("2_2a4il")
 flat = true
 icon_alignment = 1
 
-[node name="Playbutton2" type="Button" parent="."]
-offset_left = 784.0
-offset_top = 55.0
-offset_right = 1304.0
-offset_bottom = 575.0
+[node name="Playbutton" type="Button" parent="."]
+offset_left = 718.0
+offset_top = 115.0
+offset_right = 1238.0
+offset_bottom = 635.0
 theme_override_font_sizes/font_size = 80
 icon = ExtResource("3_gag6i")
 flat = true
 icon_alignment = 1
+
+[node name="QuitGameButton" type="Button" parent="."]
+offset_left = 603.0
+offset_top = 657.0
+offset_right = 1123.0
+offset_bottom = 1177.0
+icon = ExtResource("5_abso7")
+flat = true
+
+[node name="QuitGameBubbleButton" type="Button" parent="."]
+offset_left = 964.0
+offset_top = 585.0
+offset_right = 1372.0
+offset_bottom = 793.0
+icon = ExtResource("5_f4dd7")
+flat = true
 
 [node name="BGMVolume" type="Node" parent="."]
 
@@ -71,7 +98,9 @@ max_value = 1.0
 step = 0.05
 value = 0.5
 
-[connection signal="pressed" from="Playbutton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Playbutton2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Playbuttonbubble" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Playbutton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitGameButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="QuitGameBubbleButton" to="." method="_on_quit_button_pressed"]
 [connection signal="value_changed" from="BGMVolume/HSlider" to="." method="_on_bmg_slider_value_changed"]
 [connection signal="value_changed" from="EffectVolume/HSlider" to="." method="_on_effect_slider_value_changed"]
