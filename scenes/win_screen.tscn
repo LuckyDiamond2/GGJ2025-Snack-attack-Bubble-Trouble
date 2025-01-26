@@ -99,10 +99,10 @@ icon = ExtResource("5_o2l1n")
 flat = true
 
 [node name="MenuButton" type="Button" parent="."]
-offset_left = 335.0
-offset_top = -16.0
-offset_right = 855.0
-offset_bottom = 504.0
+offset_left = -8.0
+offset_top = -61.0
+offset_right = 512.0
+offset_bottom = 459.0
 icon = ExtResource("6_gehgr")
 flat = true
 
