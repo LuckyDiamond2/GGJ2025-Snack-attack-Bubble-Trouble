@@ -11,6 +11,10 @@ var velocity = Vector2.ZERO
 @onready var foodDetectionZone = $FoodDetectionZone
 @onready var foodDetectionZone2 = $FoodDetectionZone2
 var is_targetable = true
+var bubble_hit = [preload("res://assets/cats/mreor.mp3"),
+				 preload("res://assets/cats/Angrymeow.mp3")]
+				
+var player
 
 enum {
 	IDLE,
@@ -35,6 +39,10 @@ func _ready() -> void:
 	get_parent().get_parent().on_bubble_pop.connect(_on_bubble_pop)
 	food = get_node("/root/GameScreen/Hamburger")
 	sprite.play("run")
+	
+	player = AudioStreamPlayer.new()
+	player.volume_db = linear_to_db($"/root/Settings".get_effect_volume()) + 9
+	add_child(player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -68,6 +76,11 @@ func _on_bubble_pop(position: Vector2):
 				print("cat now has ", lifeCount, " left")
 				var direction = (food.position - position).normalized()
 				velocity = velocity.move_toward(-direction * MAX_SPEED, 5000)
+				
+				var rand_pitch_scale = randf_range(0.5, 1.5)
+				player.pitch_scale = rand_pitch_scale
+				player.stream = bubble_hit.pick_random()
+				player.play()
 		
 		if lifeCount <= 0:
 			get_parent().get_parent().on_cat_despawn.emit(self)

@@ -33,9 +33,6 @@ position = Vector2(854, 683)
 
 [node name="GeneratedCats" type="Node2D" parent="."]
 
-[node name="Cat2" parent="GeneratedCats" instance=ExtResource("8_8c6ri")]
-position = Vector2(-681, 927)
-
 [node name="Cat" parent="GeneratedCats" instance=ExtResource("8_8c6ri")]
 position = Vector2(1826, 989)
 
@@ -60,7 +57,7 @@ position = Vector2(8, 987)
 position = Vector2(1376, 1072)
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 7.0
 autostart = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -73,8 +70,9 @@ anchor_right = 0.871
 anchor_bottom = 0.144
 offset_left = -20.3201
 offset_top = -11.52
-offset_right = 19.6799
-offset_bottom = 11.48
+offset_right = 60.6799
+offset_bottom = 40.48
+scale = Vector2(2.5, 2.5)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_cat_spawn_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_win_timer_timeout"]
